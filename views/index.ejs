@@ -1,0 +1,25 @@
+<%-include('./partials/header.ejs')%>
+<div style="background-color:#593446; padding-top: 5%; padding-bottom: 8%;">
+<div class="container" >
+  <h1 class="text-center" style="color: whitesmoke">Alle Beiträge</h1>
+  <hr>
+  <% if(values.length > 0) {%>
+    <% values.forEach(value => {%>
+  <div >
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail"  style="background-color:whitesmoke;">
+        <div class="caption">
+          <h3  class="text-center" style="color:#593446"><%= value.title%></h3>
+          <hr>
+          <p style="color:#593446;"><%= value.snippet%> . . . . </p>
+          <hr>
+          <p class="text-center"><a href="/home/<%=value._id%>" class="btn" style="color:#593446" role="button">Details</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%});%>
+  <%}%>
+</div>
+</div>
+<%-include('./partials/footer.ejs')%>

@@ -1,0 +1,37 @@
+<%-include('./partials/header.ejs')%>
+<div style="background-color:#593446; padding-top: 10%;">
+<div class="container">
+  <div  class="col-sm-6 col-md-12  text-center">
+    <div class="caption text-center" style="color: whitesmoke;">
+      <h2> <%= value.title%> </h2>
+      <hr>
+    </div>
+    <p style="color: whitesmoke;"> <%= value.body%></p>
+    <div class="text-center">
+      <button style="margin-top: 5%;" class="delete btn btn-primary" data-doc="<%= value._id%>">DELETE</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+  const deleteButton = document.querySelector('button.delete');
+
+  deleteButton.addEventListener('click', (e) => {
+    
+    const endPoint = `/home/${deleteButton.dataset.doc}`;
+    console.log(endPoint);
+    fetch(endPoint, {
+      method: 'DELETE'
+    })
+    .then((response) =>{
+      response.json()
+    .then((data) => window.location.href= data.redirect)
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  });
+</script>
+
+<%-include('./partials/footer.ejs')%>

@@ -1,0 +1,28 @@
+<%-include('./partials/header.ejs')%>
+<div style="background-color:#593446; padding-top: 8%;">
+<div class="container">
+  <div>
+    <h3 style="color: whitesmoke;">Erstellen Sie einen neuen Beitrag</h3>
+    <hr>
+  </div>
+  <div style="margin-top: 2%;">
+    <form action="/home" method="POST">
+      <div>
+        <label for="title" style="color: whitesmoke;">Titel </label>
+        <input type="text" class="form-control" name="title" required>
+      </div>
+      <div>
+        <label for="snippet" style="color: whitesmoke;">Snippet</label>
+        <input class="form-control" type="text" name="snippet" required>
+      </div>
+      <div>
+        <label for="body" style="color: whitesmoke;">Body</label>
+        <textarea class="form-control" name="body" required></textarea>
+      </div>
+      <button class="btn-success" style="margin-top: 2%;">SUBMIT</button>
+    </form>
+  </div>
+</div>
+</div>
+
+<%-include('./partials/footer.ejs')%>
